@@ -10,9 +10,9 @@
 
 <body>
     <h1>Date (MM/DD/YYYY): </h1>
-    <input type="text" id="date" required>
+    <input type="text" id="date" placeholder="MM/DD/YYYY" required>
     <h1>Days: </h1>
-    <input type="text" id="days" required>
+    <input type="text" id="days" placeholder="0" required>
     <br />
     <button type="submit" id="submit">Calculate</button>
 </body>
@@ -27,7 +27,11 @@
             };
             console.log(userData);
             $.get("http://localhost:3000/api/banana", userData, (data) => {
-                alert("Total cost: $" + data.totalPrice);
+                if (isNaN(data.totalPrice)) {
+                    alert("Incorrect input format!")
+                } else {
+                    alert("Total cost: $" + data.totalPrice);
+                }
             });
         });
     });//Document End
