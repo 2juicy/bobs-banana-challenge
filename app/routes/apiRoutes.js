@@ -12,7 +12,6 @@ module.exports = app => {
     let day = d.getDay();
     // Day of the month (from 1-31)
     let week = d.getDate();
-    console.log(week);
     // Returns the month (from 0-11)
     let month = d.getMonth();
     let monthDays;
