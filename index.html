@@ -27,7 +27,7 @@
             };
             console.log(userData);
             $.post("http://localhost:3000/api/banana", userData, (data) => {
-                console.log("Total cost: $" + data.totalPrice);
+                alert("Total cost: $" + data.totalPrice);
             });
         });
     });//Document End
