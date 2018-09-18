@@ -12,9 +12,10 @@ module.exports = app => {
     let day = d.getDay();
     // Day of the month (from 1-31)
     let week = d.getDate();
+    console.log(week);
     // Returns the month (from 0-11)
     let month = d.getMonth();
-    let monthDays = 0;
+    let monthDays;
     // Variable for total cost and price
     let totalCost = 0;
     let price = 0;
@@ -27,6 +28,7 @@ module.exports = app => {
         return (monthDays = 31);
       }
     }
+    findDays(month);
     // Checks week of the month and sets price
     function findPrice(x) {
       if (x <= 7) {
@@ -35,14 +37,16 @@ module.exports = app => {
         return (price = 0.1);
       } else if (x > 14 && x <= 21) {
         return (price = 0.15);
-      } else {
+      } else if (x > 21 && x <= 28) {
         return (price = 0.2);
+      } else {
+        return (price = 0.25);
       }
     }
     // Checks if it is a weekday or weekend and calculates total.
-    for (let i = day; i <= numberOfDays; i++) {
+    for (let i = 0; i < numberOfDays; i++) {
       // Checks if weekday then calculates costs
-      if (day !== 6 || day !== 0) {
+      if (day !== 6 && day !== 0) {
         findPrice(week);
         totalCost = totalCost + price;
       }
