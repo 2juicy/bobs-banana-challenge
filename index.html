@@ -26,7 +26,7 @@
                 totalDays: $('#days').val()
             };
             console.log(userData);
-            $.post("http://localhost:3000/api/banana", userData, (data) => {
+            $.get("http://localhost:3000/api/banana", userData, (data) => {
                 alert("Total cost: $" + data.totalPrice);
             });
         });
