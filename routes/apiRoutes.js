@@ -18,13 +18,14 @@ module.exports = app => {
     let day = d.getDay();
     // Day of the month (from 1-31)
     let week = d.getDate();
-    // Returns the month (from 0-11)
+    // Returns the month (from 0-11, Jan to Dec)
     let month = d.getMonth();
     let monthDays;
     // Variable for total cost and price
     let totalCost = 0;
     let price = 0;
     // Functions
+    // Checks if year is a leap year.
     function leapYear(x) {
       if (x % 400 === 0) {
         return (isLeapYear = true);
@@ -37,6 +38,7 @@ module.exports = app => {
       }
     }
     leapYear(year);
+    // Finds the month and sets the amount of days each calendar month.
     function findDays(x) {
       if (x == 1) {
         if (isLeapYear) {
