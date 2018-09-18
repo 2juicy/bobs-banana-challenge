@@ -1,13 +1,15 @@
 module.exports = app => {
   app.get("/api/banana", (req, res) => {
     // Date can be formatted in the front end or back end with moment.js to match MM/DD/YYYY.
+    const regex = RegExp(
+      /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)(\d{2})/
+    );
     console.log(req.query);
     // This will be a user input date
     let startDate = req.query.currentDate;
-    const dateParts = startDate.split("/");
-    const year = dateParts[2];
+    const dateParts = req.query.currentDate.split("/");
+    let year = dateParts[2];
     let isLeapYear = false;
-    console.log(dateParts);
     // Take user input and turn into Date object.
     const d = new Date(startDate);
     // This will be user input for total calender days stay.
@@ -35,10 +37,9 @@ module.exports = app => {
       }
     }
     leapYear(year);
-    console.log(isLeapYear);
     function findDays(x) {
       if (x == 1) {
-        if (isLeapYear === true) {
+        if (isLeapYear) {
           return (monthDays = 29);
         } else return (monthDays = 28);
       } else if (x == 3 || x == 5 || x == 8 || x == 10) {
@@ -84,13 +85,18 @@ module.exports = app => {
           month = 0;
         }
         findDays(month);
-        console.log(monthDays);
         week = 1;
       }
     }
     // Print out total.
-    const result = totalCost.toFixed(2);
-    console.log(`Final Sum: $${result}`);
+    let result;
+    if (!regex.test(startDate)) {
+      result = "Incorrect Date Format!!!";
+      console.log("Incorrect Date Format");
+    } else {
+      result = totalCost.toFixed(2);
+      console.log(`Final Sum: $${result}`);
+    }
     res.json({ totalPrice: result });
   });
 };
