@@ -25,8 +25,8 @@
                 currentDate: $('#date').val(),
                 totalDays: $('#days').val()
             };
+            console.log(userData);
             $.post("http://localhost:3000/api/banana", userData, (data) => {
-                alert("Total cost: $" + data);
                 console.log("Total cost: $" + data);
             });
         });
