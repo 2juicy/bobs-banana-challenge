@@ -28,7 +28,7 @@
             console.log(userData);
             $.get("http://localhost:3000/api/banana", userData, (data) => {
                 if (isNaN(data.totalPrice)) {
-                    alert("Incorrect input format!")
+                    alert(data.totalPrice)
                 } else {
                     alert("Total cost: $" + data.totalPrice);
                 }
