@@ -63,7 +63,7 @@ module.exports = app => {
       }
     }
     // Print out total.
-    console.log(`Final Sum: ${totalCost}`);
-    res.json(totalCost);
+    console.log(`Final Sum: $${totalCost}`);
+    res.json({ totalPrice: totalCost });
   });
 };
