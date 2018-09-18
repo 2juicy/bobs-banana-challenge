@@ -1,14 +1,13 @@
 module.exports = app => {
   app.post("/api/banana", (req, res) => {
     // Date can be formatted in the front end or back end with moment.js to match MM/DD/YYYY.
-    let date = req.body;
     console.log(req.body);
     // This will be a user input date
-    let startDate = date.currentDate;
+    let startDate = req.body.currentDate;
     // Take user input and turn into Date object.
     const d = new Date(startDate);
     // This will be user input for total calender days stay.
-    let numberOfDays = date.totalDays;
+    let numberOfDays = req.body.totalDays;
     // Day of the week (from 0-6, Sunday to Saturday)
     let day = d.getDay();
     // Day of the month (from 1-31)

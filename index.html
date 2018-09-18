@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Date (MM/DD/YYYY): </h1>
+    <input type="text" id="date" required>
+    <h1>Days: </h1>
+    <input type="text" id="days" required>
+    <br />
+    <button type="submit" id="submit">Calculate</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit").on("click", (event) => {
+            event.preventDefault();
+            const userData = {
+                currentDate: $('#date').val(),
+                totalDays: $('#days').val()
+            };
+            $.post("http://localhost:3000/api/banana", userData, (data) => {
+                alert("Total cost: $" + data);
+                console.log("Total cost: $" + data);
+            });
+        });
+    });//Document End
+</script>
+
+</html>
