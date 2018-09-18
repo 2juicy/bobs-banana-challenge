@@ -4,6 +4,10 @@ module.exports = app => {
     console.log(req.query);
     // This will be a user input date
     let startDate = req.query.currentDate;
+    const dateParts = startDate.split("/");
+    const year = dateParts[2];
+    let isLeapYear = false;
+    console.log(dateParts);
     // Take user input and turn into Date object.
     const d = new Date(startDate);
     // This will be user input for total calender days stay.
@@ -18,9 +22,25 @@ module.exports = app => {
     // Variable for total cost and price
     let totalCost = 0;
     let price = 0;
+    // Functions
+    function leapYear(x) {
+      if (x % 400 === 0) {
+        return (isLeapYear = true);
+      } else if (x % 100 === 0) {
+        return (isLeapYear = false);
+      } else if (x % 4 === 0) {
+        return (isLeapYear = true);
+      } else {
+        return (isLeapYear = false);
+      }
+    }
+    leapYear(year);
+    console.log(isLeapYear);
     function findDays(x) {
       if (x == 1) {
-        return (monthDays = 29);
+        if (isLeapYear === true) {
+          return (monthDays = 29);
+        } else return (monthDays = 28);
       } else if (x == 3 || x == 5 || x == 8 || x == 10) {
         return (monthDays = 30);
       } else {
@@ -59,9 +79,12 @@ module.exports = app => {
       if (week > monthDays) {
         month++;
         if (month > 11) {
+          year++;
+          leapYear(year);
           month = 0;
         }
         findDays(month);
+        console.log(monthDays);
         week = 1;
       }
     }
