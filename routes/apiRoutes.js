@@ -63,7 +63,6 @@ module.exports = app => {
         return (price = 0.25);
       }
     }
-    // Checks if it is a weekday or weekend and calculates total.
     for (let i = 0; i < numberOfDays; i++) {
       // Checks if weekday then calculates costs
       if (day !== 6 && day !== 0) {
@@ -91,11 +90,11 @@ module.exports = app => {
     // Print out total.
     let result;
     if (!regex.test(startDate)) {
-      result = "Incorrect Date Format!!!";
+      result = "Incorrect Date Format!";
       console.log("Incorrect Date Format");
     } else {
       result = totalCost.toFixed(2);
-      console.log(`Final Sum: $${result}`);
+      console.log(`Total: $${result}`);
     }
     res.json({ totalPrice: result });
   });
