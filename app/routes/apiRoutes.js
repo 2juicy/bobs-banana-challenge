@@ -66,7 +66,8 @@ module.exports = app => {
       }
     }
     // Print out total.
-    console.log(`Final Sum: $${totalCost}`);
-    res.json({ totalPrice: totalCost });
+    const result = totalCost.toFixed(2);
+    console.log(`Final Sum: $${result}`);
+    res.json({ totalPrice: result });
   });
 };
