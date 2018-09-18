@@ -58,6 +58,9 @@ module.exports = app => {
       week++;
       if (week > monthDays) {
         month++;
+        if (month > 11) {
+          month = 0;
+        }
         findDays(month);
         week = 1;
       }
