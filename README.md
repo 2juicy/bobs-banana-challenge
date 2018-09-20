@@ -1,5 +1,7 @@
 # Bobs Banana Challenge
 
+Deployed on [Heroku](https://currencychallenge.herokuapp.com/)
+
 ### Instructions
 
 Currency coding challenge. Design and build a microservice (no need for UI or DB storage) that contains one REST API endpoint. This endpoint should: Receive requests containing the following inputs: startDate (in the format of MM/DD/YYYY) and numberOfDays (the number of calendar days to calculate cost for, starting on the startDate and including weekends). Respond with the following outputs: totalCost.
