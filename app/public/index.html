@@ -30,7 +30,7 @@
                 totalDays: $('#days').val()
             };
             console.log(userData);
-            $.get("http://localhost:3000/api/banana", userData, (data) => {
+            $.get("/api/banana", userData, (data) => {
                 if (isNaN(data.totalPrice)) {
                     alert(data.totalPrice)
                 } else {
