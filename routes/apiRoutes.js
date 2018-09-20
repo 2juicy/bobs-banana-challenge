@@ -4,17 +4,16 @@ module.exports = app => {
     console.log(req.query);
     // This will be a user input date
     let startDate = moment(req.query.currentDate).format("L");
-    //Regex MM/DD/YYYY Format for validation.
+    console.log(startDate);
+    // Regex MM/DD/YYYY Format for validation.
     const regex = RegExp(
       /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)(\d{2})/
     );
     let result;
     if (!regex.test(startDate)) {
       result = "Incorrect Date Format!";
-      console.log("Incorrect Date Format");
-    } else if (!req.query.totalDays) {
-      result = "Please enter the amount of days!";
-      console.log("No Days Input");
+    } else if (!req.query.totalDays || isNaN(req.query.totalDays)) {
+      result = "Please enter the amount of days with a numeric value!";
     } else {
       const dateParts = startDate.split("/");
       let year = dateParts[2];
