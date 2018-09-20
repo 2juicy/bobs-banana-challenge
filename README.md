@@ -17,8 +17,5 @@ o NOTE: Bob only buys bananas on his work days. You can assume he works a typica
 ### NPM Packages
 
 - [Express](https://www.npmjs.com/package/express)
+- [Path](https://www.npmjs.com/package/path)
 - [Moment](https://momentjs.com/)
-
-### Chrome Extensions
-
-- [Allow-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related?hl=en-US) is used with index.html for testing. Add extension to Google Chrome. Open index.html in Google Chrome and enable cross-origin resource sharing.
