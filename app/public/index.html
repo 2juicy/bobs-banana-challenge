@@ -10,15 +10,41 @@
 
 <body>
     <h1>Bob's Banana Budget</h1>
+    <hr>
     <form>
         <label for="date">Date: </label>
-        <input type="text" id="date" placeholder="MM/DD/YYYY" required>
+        <input type="date" id="date" placeholder="MM/DD/YYYY" required>
         <br />
         <label for="Days">Days: </label>
-        <input type="text" id="days" placeholder="0" required>
+        <input type="number" id="days" placeholder="0" required>
         <br />
         <input type="submit" id="submit" value="Calculate">
     </form>
+    <h3>Instructions</h3>
+    <hr>
+    <p>Build a node server that has the following features: </p>
+    <ul>
+        <li>Design and build a microservice (no need for UI or DB storage) that contains one REST API endpoint. This endpoint
+            should:
+        </li>
+        <ul>
+            <li>Receive requests containing the following inputs: startDate (in the format of MM/DD/YYYY) and numberOfDays
+                (the number of calendar days to calculate cost for, starting on the startDate and including weekends).</li>
+            <li>Respond with the following outputs: totalCost.</li>
+        </ul>
+        <li>The endpoint will determine the output by solving this “Bob’s Banana Budget” problem:</li>
+        <ul>
+            <li>Every day, Bob buys a banana from the same grocery store on his way to work. At this grocery store, bananas
+                are priced in a dynamic, yet predictable way: the first 7 days of the month, bananas cost $0.05; the second
+                7 days of the month, bananas cost $0.10; the third 7 days of the month, bananas cost $0.15; the fourth 7
+                days of the month, bananas cost $0.20; and any remaining days of the month after that, bananas cost $0.25.</li>
+            <li>Bob wants a tool built that will allow him to budget properly for any span of time. All he should need to
+                do is provide the date for the calculation to begin and how many days to calculate (including the beginning
+                date), and the tool should tell him how much he’ll spend during that time.</li>
+            <li>NOTE: Bob only buys bananas on his work days. You can assume he works a typical Monday-Friday work week.</li>
+        </ul>
+    </ul>
+    <a href="https://github.com/2juicy/bobs-banana-challenge" target="_blank">GitHub Link</a>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
