@@ -11,7 +11,7 @@ module.exports = app => {
     );
     let result;
     if (!regex.test(startDate)) {
-      result = "Incorrect Date Format!";
+      result = "Enter a valid date format!";
     } else if (!req.query.totalDays || isNaN(req.query.totalDays)) {
       result = "Please enter the amount of days with a numeric value!";
     } else {
