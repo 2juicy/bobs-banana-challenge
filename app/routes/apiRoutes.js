@@ -9,15 +9,16 @@ module.exports = app => {
     const regex = RegExp(
       /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)(\d{2})/
     );
-    let result;
     if (!regex.test(startDate)) {
-      result = "Enter a valid date format!";
+      res.send({ totalPrice: "Enter a valid date format!" });
     } else if (
       !req.query.totalDays ||
       isNaN(req.query.totalDays) ||
       req.query.totalDays < 0
     ) {
-      result = "Please enter a proper amount of days with a numeric value!";
+      res.send({
+        totalPrice: "Please enter a proper amount of days with a numeric value!"
+      });
     } else {
       const dateParts = startDate.split("/");
       let year = dateParts[2];
@@ -103,9 +104,8 @@ module.exports = app => {
         }
       }
       // Print out total.
-      result = totalCost.toFixed(2);
-      console.log(`Total: $${result}`);
+      console.log(`Total: $${totalCost}`);
+      res.send({ totalPrice: totalCost.toFixed(2) });
     }
-    res.send({ totalPrice: result });
   });
 };
