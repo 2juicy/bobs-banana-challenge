@@ -106,6 +106,6 @@ module.exports = app => {
       result = totalCost.toFixed(2);
       console.log(`Total: $${result}`);
     }
-    res.json({ totalPrice: result });
+    res.send({ totalPrice: result });
   });
 };
