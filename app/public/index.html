@@ -79,11 +79,7 @@
         };
         console.log(userData);
         $.get("/api/banana", userData, data => {
-          if (isNaN(data.totalPrice)) {
-            alert(data.totalPrice);
-          } else {
-            alert("Total cost: $" + data.totalPrice);
-          }
+          alert(data);
         });
       });
     }); //Document End
