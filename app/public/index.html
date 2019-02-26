@@ -80,7 +80,7 @@
         console.log(userData);
         $.get("/api/banana", userData)
           .then(data => alert(data))
-          .catch(data => alert(data.responseText));
+          .catch(error => alert(error.responseText));
       });
     }); //Document End
   </script>
