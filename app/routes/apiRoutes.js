@@ -19,10 +19,8 @@ module.exports = app => {
       return res
         .status(400)
         .send("Please enter a proper amount of days with a numeric value!");
-
     const dateParts = startDate.split("/");
     let year = dateParts[2];
-    let isLeapYear = false;
     // Take user input and turn into Date object.
     const d = new Date(startDate);
     // This will be user input for total calender days stay.
@@ -41,20 +39,20 @@ module.exports = app => {
     // Checks if year is a leap year.
     function leapYear(x) {
       if (x % 400 === 0) {
-        return (isLeapYear = true);
+        return true;
       } else if (x % 100 === 0) {
-        return (isLeapYear = false);
+        return false;
       } else if (x % 4 === 0) {
-        return (isLeapYear = true);
+        return true;
       } else {
-        return (isLeapYear = false);
+        return false;
       }
     }
     leapYear(year);
     // Finds the month and sets the amount of days each calendar month.
     function findDays(x) {
       if (x == 1) {
-        if (isLeapYear) {
+        if (LeapYear()) {
           return (monthDays = 29);
         } else return (monthDays = 28);
       } else if (x == 3 || x == 5 || x == 8 || x == 10) {
