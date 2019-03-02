@@ -52,7 +52,7 @@ module.exports = app => {
     // Finds the month and sets the amount of days each calendar month.
     function findDays(x) {
       if (x == 1) {
-        if (LeapYear()) {
+        if (leapYear()) {
           return (monthDays = 29);
         } else return (monthDays = 28);
       } else if (x == 3 || x == 5 || x == 8 || x == 10) {
