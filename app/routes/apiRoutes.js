@@ -7,7 +7,7 @@ module.exports = app => {
     console.log(startDate);
     // Regex MM/DD/YYYY Format for validation.
     const regex = RegExp(
-      /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(19|20)(\d{2})/
+      /(0\d{1}|1[0-2])\/([0-2]\d{1}|3[0-1])\/(18|19|20|21)(\d{2})/
     );
     if (!regex.test(startDate))
       return res.status(400).send("Enter a valid date format!");
