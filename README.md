@@ -15,6 +15,7 @@ o NOTE: Bob only buys bananas on his work days. You can assume he works a typica
 ## Dependancies
 
 - [Node.js](https://nodejs.org/en/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ### NPM Packages
 
