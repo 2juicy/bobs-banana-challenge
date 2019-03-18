@@ -20,5 +20,4 @@ Currency coding challenge. Design and build a microservice (no need for UI or DB
 ### NPM Packages
 
 - [Express](https://www.npmjs.com/package/express)
-- [Path](https://www.npmjs.com/package/path)
 - [Moment](https://momentjs.com/)
